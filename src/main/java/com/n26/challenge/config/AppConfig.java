@@ -7,6 +7,8 @@ import com.n26.challenge.repositories.TransactionRepository;
 
 @Configuration
 public class AppConfig {
+	
+	public static final int MILISECONDS_BEFORE_NOW = 60000;
 
 	@Bean
 	public TransactionRepository getTransactionRepo(){

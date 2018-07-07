@@ -5,6 +5,7 @@ import java.util.Comparator;
 import java.util.PriorityQueue;
 import java.util.TreeSet;
 
+import com.n26.challenge.config.AppConfig;
 import com.n26.challenge.models.Statistic;
 import com.n26.challenge.models.Transaction;
 
@@ -48,8 +49,7 @@ public class TransactionRepository {
 	}
 	
 	public synchronized boolean addTransaction(Transaction transaction){		
-		//check if it is older than 60 seconds (60000 milliseconds)
-		if(transaction.getTimestamp() < (System.currentTimeMillis() - 60000)){
+		if(transaction.getTimestamp() < (System.currentTimeMillis() - AppConfig.MILISECONDS_BEFORE_NOW)){
 			return false;
 		}
 		

@@ -4,7 +4,7 @@ Author: Andy Tran
 # Instructions
 - To build and run the application:
     ```sh
-    $ cd N26\ Coding\ Challenge/
+    $ cd N26-coding-challenge/
     $ mvn clean install
     $ mvn spring-boot:run
     ```

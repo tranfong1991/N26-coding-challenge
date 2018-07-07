@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
+import com.n26.challenge.config.AppConfig;
 import com.n26.challenge.models.Transaction;
 import com.n26.challenge.repositories.TransactionRepository;
 
@@ -17,7 +18,7 @@ public class HouseKeepingScheduler {
 	public void houseKeep(){		
 		while(!transactionRepo.isEmpty()){
 			Transaction eldestTransaction = transactionRepo.getEldestTransaction();
-			if(eldestTransaction.getTimestamp() >= (System.currentTimeMillis() - 60000)){
+			if(eldestTransaction.getTimestamp() >= (System.currentTimeMillis() - AppConfig.MILISECONDS_BEFORE_NOW)){
 				break;
 			}
 			
